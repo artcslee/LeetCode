@@ -1,7 +1,7 @@
 package com.arthur.problems;
 
 import com.arthur.LeetCodeProblem;
-import com.arthur.utils.Sort;
+import com.arthur.utils.SortUtil;
 
 import java.util.*;
 
@@ -19,7 +19,7 @@ public class CoinChange extends LeetCodeProblem {
         for (int x=1; x<args.length; x++) {
             coins.add(Integer.valueOf(args[x]));
         }
-        newArgs.addAll(Sort.sortDescending(coins));
+        newArgs.addAll(SortUtil.sortDescending(coins));
         return newArgs;
     }
 

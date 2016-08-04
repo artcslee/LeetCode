@@ -7,7 +7,7 @@ import java.util.List;
 /**
  * Created by artcslee on 7/28/16.
  */
-public class Sort {
+public class SortUtil {
     public static List<Comparable> sortDescending (List<Comparable> list) {
         ArrayList<Comparable> descendingList = new ArrayList<>();
 
