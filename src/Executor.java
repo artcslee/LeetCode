@@ -1,4 +1,5 @@
 import com.arthur.LeetCodeProblem;
+import com.arthur.problems.LongestPalindrome;
 import com.arthur.problems.LongestStringNoDupChar;
 
 /**
@@ -6,7 +7,7 @@ import com.arthur.problems.LongestStringNoDupChar;
  */
 public class Executor {
     public static void main(String[] args) {
-        LeetCodeProblem leetCodeProblem = new LongestStringNoDupChar();
+        LeetCodeProblem leetCodeProblem = new LongestPalindrome();
         leetCodeProblem.runProblem(args);
     }
 }
