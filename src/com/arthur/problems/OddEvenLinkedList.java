@@ -4,7 +4,13 @@ import com.arthur.LeetCodeProblem;
 import com.arthur.components.ListNode;
 
 /**
- * Created by artcslee on 7/28/16.
+ * Given a singly linked list, group all odd nodes together followed by the even nodes.
+ * Please note here we are talking about the node number and not the value in the nodes.
+ * You should try to do it in place. The program should run in O(1) space complexity and O(nodes) time complexity.
+ *
+ * Example:
+ * Given 1->2->3->4->5->NULL,
+ * return 1->3->5->2->4->NULL.
  */
 public class OddEvenLinkedList extends LeetCodeProblem {
 
@@ -23,8 +29,15 @@ public class OddEvenLinkedList extends LeetCodeProblem {
     public void solution(Object arg) {
         ListNode head = (ListNode) arg;
         head.printList();
-        mutateList(head, head.next, head.next);
+        oddEvenList(head);
         head.printList();
+    }
+
+    public ListNode oddEvenList(ListNode head) {
+        if (head!=null) {
+            mutateList(head, head.next, head.next);
+        }
+        return head;
     }
 
     public void mutateList(ListNode odd, ListNode even, ListNode evenHead) {

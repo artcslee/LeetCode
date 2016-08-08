@@ -6,7 +6,17 @@ import com.arthur.utils.SortUtil;
 import java.util.*;
 
 /**
- * Created by artcslee on 7/28/16.
+ * You are given coins of different denominations and a total amount of money amount.
+ * Write a function to compute the fewest number of coins that you need to make up that amount.
+ * \If that amount of money cannot be made up by any combination of the coins, return -1.
+ *
+ * Example 1:
+ * coins = [1, 2, 5], amount = 11
+ * return 3 (11 = 5 + 5 + 1)
+ *
+ * Example 2:
+ * coins = [2], amount = 3
+ * return -1.
  */
 public class CoinChange extends LeetCodeProblem {
 
@@ -32,9 +42,9 @@ public class CoinChange extends LeetCodeProblem {
 
         //Print Problem
         System.out.print("Target: [" + amount + "], Coins: [");
-        for (int x=0; x<coins.size(); x++) {
+        for (int x = 0; x < coins.size(); x++) {
             System.out.print(coins.get(x));
-            if (x < coins.size()-1) {
+            if (x < coins.size() - 1) {
                 System.out.print(", ");
             } else {
                 System.out.println("]");
@@ -44,6 +54,10 @@ public class CoinChange extends LeetCodeProblem {
         //Solve Problem
         int totalCoinNum = getLeastCoinNum(coins, amount, Integer.MAX_VALUE);
         System.out.println("Total Num Of Coins: [" + totalCoinNum + "]");
+    }
+
+    public int coinChange(int[] coins, int amount) {
+        return 0;
     }
 
     public int getLeastCoinNum(List<Integer> coins, int target, int leastNum) {
