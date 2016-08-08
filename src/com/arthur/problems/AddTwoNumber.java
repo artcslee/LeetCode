@@ -52,22 +52,41 @@ public class AddTwoNumber extends LeetCodeProblem {
     }
 
     public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
-        ListNode dummyHead = new ListNode(0);
-        ListNode p = l1, q = l2, curr = dummyHead;
-        int carry = 0;
-        while (p != null || q != null) {
-            int x = (p != null) ? p.val : 0;
-            int y = (q != null) ? q.val : 0;
-            int sum = carry + x + y;
-            carry = sum / 10;
-            curr.next = new ListNode(sum % 10);
-            curr = curr.next;
-            if (p != null) p = p.next;
-            if (q != null) q = q.next;
+        ListNode firstNum = l1;
+        ListNode secondNum = l2;
+
+        ListNode answer = null;
+
+        int remainder = 0;
+        ListNode currNode = answer;
+        while (firstNum != null || secondNum != null) {
+            int sum = addNodes(firstNum, secondNum) + remainder;
+            remainder = sum / 10;
+            ListNode sumNode = new ListNode(sum % 10);
+
+            if (answer == null) {
+                answer = sumNode;
+            } else {
+                currNode.next = sumNode;
+            }
+
+            currNode = sumNode;
+            firstNum = firstNum == null ? null : firstNum.next;
+            secondNum = secondNum == null ? null : secondNum.next;
         }
-        if (carry > 0) {
-            curr.next = new ListNode(carry);
+
+        if (remainder != 0) {
+            ListNode lastNode = new ListNode(remainder);
+            currNode.next = lastNode;
         }
-        return dummyHead.next;
+
+        return answer;
+    }
+
+    public int addNodes(ListNode l1, ListNode l2) {
+        int fNum = l1 == null ? 0 : l1.val;
+        int sNum = l2 == null ? 0 : l2.val;
+
+        return fNum + sNum;
     }
 }
